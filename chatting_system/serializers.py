@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from django.conf import settings
-from .models import UserProfile
+from .models import CustomUser
 
-class UserProfileSerializer(serializers.ModelSerializer):
+class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserProfile
+        model = CustomUser
         fields = ['name', 'profile_picture']

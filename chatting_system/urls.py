@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import UserProfileAPIView
+from .views import CustomUserAPIView
 from . import views
 
 urlpatterns = [
-    path('profile/', UserProfileAPIView.as_view(), name='user_profile'),
+    path('profile/<int:pk>/', CustomUserAPIView.as_view(), name='user_profile'),
     path('verify-phone/', views.verify_phone_number, name='verify_phone_number'),
     path('verify-otp/', views.verify_otp, name='verify_otp'),
     path('update-profile/', views.update_profile, name='update_profile'),

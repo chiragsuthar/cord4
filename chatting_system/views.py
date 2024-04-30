@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import RecurringMessage, ScheduledMessage, UserProfile, UserSettings
-from .serializers import UserProfileSerializer
+from .models import RecurringMessage, ScheduledMessage, UserSettings, CustomUser
+from .serializers import CustomUserSerializer
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django_otp import devices_for_user
@@ -9,9 +9,9 @@ from django_otp.plugins.otp_static.models import StaticDevice
 from .models import Message
 from django.contrib.auth import get_user_model
 
-class UserProfileAPIView(generics.RetrieveUpdateAPIView):
-    queryset = UserProfile.objects.all()
-    serializer_class = UserProfileSerializer
+class CustomUserAPIView(generics.RetrieveUpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
 
 @login_required
 def verify_phone_number(request):
